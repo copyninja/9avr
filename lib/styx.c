@@ -55,6 +55,7 @@ void interpret(uchar *msg, short len)
             /* send Rerror */
         }
 
+        free(protover);
         break;
     default:
     }
