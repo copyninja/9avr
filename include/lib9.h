@@ -8,4 +8,4 @@ typedef unsigned long long int  uvlong;
 typedef unsigned int            u32int;
 typedef uvlong                  u64int;
 
-
+typedef unsigned short          ushort;
