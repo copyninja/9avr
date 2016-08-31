@@ -31,15 +31,20 @@ const DirectoryEntry *qid_map[] = {
 
 uchar resp[16];
 
-void interpret(uchar *msg, short len)
+void process_styx_message(uchar *msg, short len)
 {
     uchar type = msg[0];
 
     switch (type) {
     case Tversion:
-        /* Tversion tag msize version == Tversion (-1) msize "9P2000" */
+        /*
+           Tversion[1] tag[2] msize[4] version[s]
+           Tversion NOTAG msize "9P2000"
+         */
+
         uchar tag = GBIT16(&msg[1]);
-        assert(tag == -1);
+        /* Client establishes with NOTAG  */
+        assert(tag == NOTAG);
 
         /* msize is 4 bytes */
         u32int msize = GBIT32(&msg[3]);
@@ -74,7 +79,7 @@ void process_message(uchar *msg, short len)
     msgsize = GBIT32(&msg[0]);
 
     if (msgsize > 0) {
-        interpret(&msg[4], msgsize - 4);
+        process_styx_message(&msg[4], msgsize - 4);
     }
 }
 
