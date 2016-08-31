@@ -20,6 +20,8 @@
 #define	BIT64SZ		8
 #define	QIDSZ	        (BIT8SZ+BIT32SZ+BIT64SZ)
 
+
+#define	NOTAG		(ushort)~0U	/* Dummy tag */
 #define	IOHDRSZ		24	/* ample room for Twrite/Rread header (iounit) */
 
 enum
