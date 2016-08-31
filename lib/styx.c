@@ -50,17 +50,18 @@ void process_styx_message(uchar *msg, short len)
         u32int msize = GBIT32(&msg[3]);
 
         /* next 6 bytes is the string "9P2000" */
-        char *protover
-        asprintf(&protover, "%c%c%c%c%c%c", msg[7], msg[8], msg[9], msg[10], msg[11], msg[12]);
+        char protover[7];
+        strncpy(protover, 6, *msg+7);
+        protover[6] = '\0';
 
-        if (strcmp(protover, "9P2000") == 0) {
+
+        if (strcmp(protover, VERSION9P) == 0) {
             /* send Rversion */
         }
         else {
             /* send Rerror */
         }
 
-        free(protover);
         break;
     default:
     }
