@@ -1,4 +1,4 @@
-/* copied from Inferno's include/styx.h file */
+/* copied from Inferno's include/styx.h and include/fcall.h file */
 #define	VERSION9P	"9P2000"
 #define	MAXWELEM	16
 
@@ -20,6 +20,9 @@
 #define	BIT64SZ		8
 #define	QIDSZ	        (BIT8SZ+BIT32SZ+BIT64SZ)
 
+
+#define	NOTAG		(ushort)~0U	/* Dummy tag */
+#define	NOFID		(u32int)~0U	/* Dummy fid */
 #define	IOHDRSZ		24	/* ample room for Twrite/Rread header (iounit) */
 
 enum
