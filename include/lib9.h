@@ -1,3 +1,5 @@
+#ifndef __LIB9_INCLUDE_H__
+
 #define	nil		((void*)0)
 
 typedef unsigned char           uchar;
@@ -9,3 +11,5 @@ typedef unsigned int            u32int;
 typedef uvlong                  u64int;
 
 typedef unsigned short          ushort;
+
+#endif //__LIB9_INCLUDE_H__

@@ -1,3 +1,5 @@
+#ifndef __STYX_INCLUDE_H__
+
 /* copied from Inferno's include/styx.h and include/fcall.h file */
 #define	VERSION9P	"9P2000"
 #define	MAXWELEM	16
@@ -57,3 +59,5 @@ enum
 	Rwstat,
 	Tmax,
 };
+
+#endif // __STYX_INCLUDE_H__
