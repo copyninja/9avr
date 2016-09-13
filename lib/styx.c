@@ -51,7 +51,7 @@ void process_styx_message(uchar *msg, short len)
 
         /* next 6 bytes is the string "9P2000" */
         char protover[7];
-        strncpy(protover, 6, *msg+7);
+        strncpy(protover, (const char*)(msg+7), 6);
         protover[6] = '\0';
 
 
