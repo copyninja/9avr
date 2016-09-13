@@ -1,9 +1,18 @@
 #include "lib9.h"
+#include "styx.h"
+
+#include <assert.h>
+#include <string.h>
 
 #define QID_ROOT  0
 #define QID_HELLO 1
 
 typedef struct DirectoryEntry {
+  char *name;
+  uchar qid;
+  const struct DirectoryEntry *sub;
+  short (*read)(const struct DirectoryEntry *dp, ushort tag, ushort fid, ushort offset, ushort count);
+  short (*write)(const struct DirectoryEntry *dp, ushort offset, ushort count, uchar *buf);
 } DirectoryEntry;
 
 /* qid is 104 bits long */
