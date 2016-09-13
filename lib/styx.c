@@ -64,6 +64,7 @@ void process_styx_message(uchar *msg, short len)
 
         break;
     default:
+      break;
     }
 }
 
